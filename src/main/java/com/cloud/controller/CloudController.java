@@ -15,13 +15,22 @@ public class CloudController {
     @GetMapping(value ="/mostrar")
     public String descargar(){
         RestTemplate restTemplate = new RestTemplate();
+        System.out.println("Inicio");
 //        Map<String, String> vars = new HashMap<>();
 //        vars.put("hotel", "42");
 //        vars.put("booking", "21");
 //        String result = restTemplate.getForObject("http://example.com/hotels/{hotel}/bookings/{booking}", String.class, vars);
-        //String result = restTemplate.getForObject("https://documentos-royal.rimac.com/vida/vividaaddons/planesvidainversion/poliza/2024/08/21/83388d79-31c5-41b5-9541-f273889bfc24.pdf", String.class);
-        String result = "Pruebas srping boot";
+        String result = "";
+        try{
+            result = restTemplate.getForObject("https://documentos-royal.rimac.com/vida/vividaaddons/planesvidainversion/poliza/2024/08/21/83388d79-31c5-41b5-9541-f273889bfc24.pdf", String.class);
+        }catch (Exception e) {
+            e.printStackTrace();
+            System.out.println(e.getMessage());
+        }
+
+        //String result = "Pruebas srping boot";
         System.out.println(result);
+        System.out.println("Fin");
         return result;
     }
 }
