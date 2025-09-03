@@ -60,5 +60,5 @@ jobs:
         with:
           app-name: 'SrpingBoot'
           slot-name: 'Production'
-          package: '/home/runner/work/SpringBoot/SpringBoot/artifact/*.jar'
+          package: '${{ github.workspace }}/artifact/*.jar'
           
